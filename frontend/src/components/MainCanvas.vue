@@ -47,14 +47,12 @@ const tileSize = 40;
 const rows = 13;
 const cols = 9;
 const fontSize = {
-    large: tileSize + 10 + 'px',
-    medium: tileSize + 'px',
-    small: tileSize - 10 + 'px',
+    large: tileSize + 10,
+    medium: tileSize,
+    small: tileSize - 10,
 }
 
 // Game State
-let score = 0;
-let level = 1;
 let gameOver = false;
 // Coordinates
 let spriteCoords = {
@@ -101,8 +99,6 @@ function animationLoop() {
 
     drawBackground();
     //drawWord();
-    drawScore();
-    drawLevel();
     drawSprite();
 
     collisonWithCorrectLetter()
@@ -121,11 +117,11 @@ function collisonWithCorrectLetter() {
     // const collisionDistance = 0;
     if ((spriteCoords.row === correctLetterCoords.row) && (spriteCoords.col === correctLetterCoords.col)) {
         stopMoving();
-        score++;
+        mainStore.score++;
         globalIndex++;
 
         if (globalIndex === mainStore.wordRelated.currentWordToLearn.length) {
-            level++;
+            mainStore.level++;
             globalIndex = 0;
             mainStore.resetWord();
         }
@@ -146,7 +142,7 @@ function collisonWithWrongLetter() {
     })) {
         stopMoving();
         bounceOffWrongLetter();
-        score--;
+        mainStore.score--;
         //TODO check this works...
         levelDown();
     }
@@ -279,26 +275,12 @@ function drawSprite() {
     canvasContext.value.fillStyle = 'blue';
     canvasContext.value.fillRect(spriteCoords.x + (tileSize / 2) - 5, spriteCoords.y + (tileSize / 2) - 5, 10, 10);
 }
-function drawScore() {
-    canvasContext.value.fillStyle = 'black';
-    canvasContext.value.font = `${fontSize.small} Arial`
-    const scorePadding = 3;
-    canvasContext.value.textBaseline = "bottom"; //note this is different from the default 'alphabetic' baseline.
-    canvasContext.value.fillText('Score: ' + score, scorePadding, (rows * tileSize) - scorePadding);
-}
-function drawLevel() {
-    canvasContext.value.fillStyle = 'black';
-    canvasContext.value.font = `${fontSize.small} Arial`
-    const levelPadding = 3;
-    canvasContext.value.textBaseline = "bottom"; //note this is different from the default 'alphabetic' baseline.
-    canvasContext.value.fillText('Level: ' + level, ((cols - 3) * tileSize - levelPadding), (rows * tileSize) - levelPadding);
-}
 function drawCorrectLetter() {
     const alignment = 8;
     const radii = 5;
     canvasContext.value.fillStyle = colorCorrectLetters;
     canvasContext.value.strokeStyle = colorCorrectLetters;
-    canvasContext.value.font = `bold ${fontSize.medium - 4} Arial`;
+    canvasContext.value.font = `bold ${fontSize.small}px Arial`;
     canvasContext.value.textBaseline = "top";
     canvasContext.value.fillText(mainStore.wordRelated.currentWordToLearn[globalIndex], correctLetterCoords.x + alignment, correctLetterCoords.y);
     canvasContext.value.beginPath();
@@ -310,7 +292,7 @@ function drawWrongLetter() {
     const radii = 5;
     canvasContext.value.fillStyle = colorWrongLetters;
     canvasContext.value.strokeStyle = colorWrongLetters;
-    canvasContext.value.font = `bold ${fontSize.medium - 4} monospace`
+    canvasContext.value.font = `bold ${fontSize.small}px monospace`
     canvasContext.value.textBaseline = "top";
     wrongLettersPositions.forEach((wrongLetterPosition, index) => {
         canvasContext.value.fillText(mainStore.wordRelated.wrongLetters[index], wrongLetterPosition.x + alignment, wrongLetterPosition.y);
@@ -321,8 +303,8 @@ function drawWrongLetter() {
 }
 
 function levelDown() {
-    if (score < 3) {
-        level = 1;
+    if (mainStore.score < 3) {
+        mainStore.level = 1;
         globalIndex = 0;
         mainStore.resetWord();
     }
