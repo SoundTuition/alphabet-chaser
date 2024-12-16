@@ -29,9 +29,9 @@ export function useMovement() {
 
     function movement(spriteCoords, speed, tileSize, rows, cols) {
         if (mainStore.isMoving) {
-            if (mainStore.currentDirection === mainStore.direction.up && spriteCoords.y > tileSize) {
+            if (mainStore.currentDirection === mainStore.direction.up && spriteCoords.y > 0) {
                 spriteCoords.y -= speed;
-            } else if (mainStore.currentDirection === mainStore.direction.down && spriteCoords.y < tileSize * (rows - 2)) {
+            } else if (mainStore.currentDirection === mainStore.direction.down && spriteCoords.y < tileSize * (rows - 1)) {
                 spriteCoords.y += speed;
             } else if (mainStore.currentDirection === mainStore.direction.left && spriteCoords.x > 0) {
                 spriteCoords.x -= speed;
