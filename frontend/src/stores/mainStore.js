@@ -34,6 +34,8 @@ export const useMainStore = defineStore('mainStore', {
         showLogin: false,
         showSettings: false,
         speed: 1,
+        score: 0,
+        level: 1,
         wordRelated: createWordRelatedState()  
     }),
     actions: {

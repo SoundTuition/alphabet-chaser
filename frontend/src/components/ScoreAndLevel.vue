@@ -1,24 +1,21 @@
 <template>
     <div id="divMain">
         <ion-label>
-            <h1>Score: {{ score }}</h1>
+            <h1>Score: {{ mainStore.score }}</h1>
         </ion-label>
         <ion-label id="level">
-            <h1>Level: {{ level }}</h1>
+            <h1>Level: {{ mainStore.level }}</h1>
         </ion-label>
     </div>
 </template>
 
 <script setup>
 import { App } from '@capacitor/app';
-import { IonLabel, } from '@ionic/vue';
-import { ref, onMounted } from 'vue';
+import { IonLabel } from '@ionic/vue';
 
-let score = 1;
-let level = 1;
+import { useMainStore } from '../stores/mainStore';
 
-
-
+const mainStore = useMainStore();
 </script>
 
 <style scoped>
