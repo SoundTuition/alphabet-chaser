@@ -1,5 +1,5 @@
 <template>
-    <div id="divMainMainWord">
+    <div id="mainWordMainDiv">
         <ion-label>
             <h1>{{ mainStore.wordRelated.currentWordToLearn }}</h1>
         </ion-label>
@@ -38,7 +38,7 @@ const mainStore = useMainStore();
 </script>
 
 <style scoped>
-#divMainMainWord {
+#mainWordMainDiv {
     display: grid;
 }
 </style>
