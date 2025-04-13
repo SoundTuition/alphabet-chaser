@@ -11,8 +11,45 @@
 
 import { IonButton } from '@ionic/vue';
 import { useMovement } from '@/composables/useMovement';
+import { onMounted, onUnmounted, ref } from 'vue';
 
 const { left, right, up, down, stopMoving, movement } = useMovement();
+
+function handleKeyDown(event) {
+    console.log("Key pressed:", event.key);
+    switch (event.key) {
+        case 'ArrowLeft':
+        case 'a':
+            left();
+            break;
+        case 'ArrowRight':
+        case 'd':
+            right();
+            break;
+        case 'ArrowUp':
+        case 'w':
+            up();
+            break;
+        case 'ArrowDown':
+        case 's':
+            down();
+            break;
+    }
+}
+
+function handleKeyUp(event) {
+    stopMoving();
+}
+
+onMounted(() => {
+    document.addEventListener('keydown', handleKeyDown);
+    document.addEventListener('keyup', handleKeyUp);
+});
+
+onUnmounted(() => {
+    document.removeEventListener('keydown', handleKeyDown);
+    document.removeEventListener('keyup', handleKeyUp);
+});
 
 </script>
 
