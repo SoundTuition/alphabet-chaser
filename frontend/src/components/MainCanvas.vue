@@ -1,5 +1,5 @@
 <template>
-    <div id="divMain">
+    <div id="mainCanvasMainDiv">
         <div id="divCanvas">
             <canvas id="mainCanvas"></canvas>
         </div>
@@ -313,7 +313,7 @@ function levelDown() {
 </script>
 
 <style scoped>
-#divMain {
+#mainCanvasMainDiv {
     display: grid;
 }
 

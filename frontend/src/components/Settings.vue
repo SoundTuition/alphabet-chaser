@@ -1,5 +1,5 @@
 <template>
-    <div id="divMainSettings">
+    <div id="settingsMainDiv">
         <div id="divTopSettings">
             <ion-item
                 class="ion-text-center custom-background"
@@ -51,7 +51,7 @@ function saveWord(event){
 <style scoped>
 
 
-#divMainSettings {
+#settingsMainDiv {
     display: grid;
 }
 

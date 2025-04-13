@@ -1,5 +1,5 @@
 <template>
-    <div id="divMain">
+    <div id="speedControllerMainDiv">
         <ion-range @ionChange="ChangeSpeed($event)" :pin="true" :ticks="true" :snaps="true" :min="1" :max="8"
             label="Speed! "></ion-range>
     </div>
@@ -18,7 +18,7 @@ function ChangeSpeed($event){
 </script>
 
 <style>
-#divMain {
+#speedControllerMainDiv {
     display: grid;
 }
 
