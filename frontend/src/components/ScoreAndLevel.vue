@@ -1,5 +1,5 @@
 <template>
-    <div id="ScoreAndLevelMainDiv">
+    <div id="scoreAndLevelMainDiv">
         <ion-label>
             <h1>Score: {{ mainStore.score }}</h1>
         </ion-label>
@@ -19,7 +19,7 @@ const mainStore = useMainStore();
 </script>
 
 <style scoped>
-#ScoreAndLevelMainDiv {
+#scoreAndLevelMainDiv {
     display: flex;
 }
 

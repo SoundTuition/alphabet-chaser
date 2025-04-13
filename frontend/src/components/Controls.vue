@@ -1,5 +1,5 @@
 <template>
-    <div id="ControlsMainDiv">
+    <div id="controlsMainDiv">
         <ion-button @mousedown="left" @mouseup="stopMoving" @touchstart="left" @touchend="stopMoving">Left</ion-button>
         <ion-button @mousedown="right" @mouseup="stopMoving" @touchstart="right" @touchend="stopMoving">Right</ion-button>
         <ion-button @mousedown="up" @mouseup="stopMoving" @touchstart="up" @touchend="stopMoving">Up</ion-button>
@@ -17,7 +17,7 @@ const { left, right, up, down, stopMoving, movement } = useMovement();
 </script>
 
 <style scoped>
-#ControlsMainDiv {
+#controlsMainDiv {
     display: flex;
     justify-content: space-between;
 }
