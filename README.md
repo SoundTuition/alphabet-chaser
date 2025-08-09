@@ -1,6 +1,6 @@
 # Sound Tuition's Alphabet Chaser
 
-Alphabet Chaser is a fun and interactive game designed to help children improve their letter recognition and spelling. Built with JavaScript, TypeScript, VueJs, Node.js, and Ionic, this game is perfect for children or adults learning a second language and the project is **extremely friendly to first-time contributors and seasoned pros alike.**
+Alphabet Chaser is a fun and interactive game designed to help children improve their letter recognition and spelling. Built with JavaScript, TypeScript, VueJs, Node.js, and Ionic, this game is perfect for children, or adults learning a second language and the project is **extremely friendly to first-time contributors and seasoned pros alike.**
 
 ## Availability
 
